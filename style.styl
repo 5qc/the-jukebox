@@ -1,0 +1,81 @@
+// Import
+
+// Variables
+bgColor = #111
+textColor = #f8f8f8
+fontFamily = minecraftia, sans-serif
+
+// Mixins
+no-select()
+    user-select none
+    -ms-user-select none
+    -moz-user-select none
+    -webkit-user-select none
+    -webkit-user-drag none
+
+// Styling
+body
+    background bgColor
+    color textColor
+    margin 0
+    font-family fontFamily
+
+.jukebox
+    position absolute
+    top 50%
+    left 50%
+    transform translate(-50%, -50%)
+    cursor pointer
+    height 50%
+
+.now-playing
+    no-select()
+    position absolute
+    top 50px
+    left 50%
+    transform translate(-50%, 0)
+    font-size 200%
+    background linear-gradient(to right, #6666ff, #0099ff, #00ff00, #ff3399, #6666ff)
+    background-clip text
+    -webkit-background-clip text
+    color transparent
+    background-size 400% 100%
+    animation 6s rainbow ease-in-out infinite
+    display none
+    text-align center
+
+.discs
+    position absolute
+    top 0
+    left 0
+    height 100%
+    padding 0px 5px
+    overflow-y auto
+    background #222
+
+    .disc
+        no-select()
+        cursor pointer
+
+        .disc-image
+            display inline-block
+            vertical-align middle
+            -webkit-user-drag none
+            height 60px
+        .disc-name
+            display inline-block
+            vertical-align middle
+            font-size 100%
+
+// At-Rules
+@keyframes rainbow
+    0%, 100%
+        background-position 0 0
+    50%
+        background-position 100% 0
+
+@font-face
+    font-family minecraftia
+    font-weight 400
+    font-style normal
+    src url("./assets/fonts/minecraftia.ttf") format("truetype")
